@@ -1,21 +1,18 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Index from "./components/Index";
+import { useContext } from "react";
+import { MyContext } from "./components/Context";
 import Home from "./components/Home";
-import About from "./components/About";
-import Navbar from "./Navbar";
-import Hello from "./components/Hello";
 
 function App() {
+  const [{ captain }, hero, setHero] = useContext(MyContext);
+  let name = "Sai Kiran";
+
   return (
     <>
-      <Navbar />
-      <Hello />
-      <Routes>
-        <Route path="/hi" element={<Index />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Home data={name} />
+      <h1>Welcome</h1>
+      <h1>{captain}</h1>
+      <h1>{hero}</h1>
+      <button onClick={() => setHero("Allu Arjun")}>Change Hero</button>
     </>
   );
 }

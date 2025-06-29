@@ -1,7 +1,13 @@
 import React from "react";
+import About from "./About";
 
-function Index() {
-  return <h6>index</h6>;
+function Index({ data }) {
+  return (
+    <div>
+      <h1>Index</h1>
+      <About data={data} />
+    </div>
+  );
 }
 
 export default Index;
