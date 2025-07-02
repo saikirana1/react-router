@@ -13,7 +13,9 @@ export default function ProductList() {
       {products.map((product) => (
         <div key={product.id}>
           <Link
-            to={`/product/${product.id}?name=${product.name}&prise${product.price}`}
+            to={`/product/${product.id}?name=${encodeURIComponent(
+              product.name
+            )}&price=${product.price}`}
           >
             {product.name} - {product.price}
           </Link>

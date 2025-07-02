@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const products = [
   { id: "1", name: "iPhone 15", price: "$999" },
@@ -8,20 +8,19 @@ const products = [
 ];
 
 function Product() {
-//   const { id } = useParams();
-//   console.log("Product ID:", id);
-//   const product = products.find((p) => p.id === id);
+  const params = useParams(); // from path like /product/:id
+  const [searchParams] = useSearchParams(); // from query string
 
-
-
-  if (!product) {
-    return <div>❌ Product not found</div>;
-  }
+  console.log("Search Params:", searchParams.get("prise"));
   return (
     <div>
-      {/* <h2>{product.name}</h2>
-      <p>Price: ₹{product.price}</p> */}
-      <h1>i am </h1>
+      Details:
+      <br />
+      Product ID: {params.id}
+      <br />
+      Name: {searchParams.get("name") || "No name provided"}
+      <br />
+      Price: {searchParams.get("price") || "No price provided"}
     </div>
   );
 }
