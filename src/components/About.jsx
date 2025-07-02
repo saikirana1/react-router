@@ -1,15 +1,12 @@
-import React from "react";
-import Home from "./Home";
+import React, { use } from "react";
+import { useParams } from "react-router-dom";
 
 function About() {
-  let x = 10;
-  let c = Home();
-  console.log(c);
+  const { id } = useParams();
+  console.log(id);
   return (
     <div>
       <h1>about</h1>
-
-      {c}
     </div>
   );
 }
